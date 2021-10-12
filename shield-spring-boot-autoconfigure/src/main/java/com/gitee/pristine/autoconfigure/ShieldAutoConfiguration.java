@@ -108,7 +108,7 @@ public class ShieldAutoConfiguration implements BeanFactoryPostProcessor, Enviro
             throw new ShieldException(" [%s] can not be found, check encoder class path or it exists.", configClazz);
         }
         catch (Exception e) {
-            throw new ShieldException("DesensitizeEncoder bean init failure.", e);
+            throw new ShieldException(e.getMessage(), e);
         }
     }
 
