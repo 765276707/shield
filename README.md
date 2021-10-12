@@ -47,7 +47,25 @@ shield是一个SpringBoot配置加密框架，内置了多种加密算法，支�
       external-secret-file: 'H:\\secret\\secret.properties'
     ~~~
     
-3.  对需要脱敏的属性值，添加加密标识
+3.  对需要脱敏的属性值，生成加密后的值
+~~~java
+@SpringBootTest
+class ShieldSpringBootSampleApplicationTests {
+
+    @Resource
+    PropertyDesensitiser propertyDesensitiser;
+
+    @Test
+    void contextLoads() {
+        System.out.println(propertyDesensitiser.encode("demo1 param value"));
+        System.out.println(propertyDesensitiser.encode("demo2 param value"));
+        System.out.println(propertyDesensitiser.encode("demo3 param value"));
+    }
+
+}
+~~~
+
+4.  对需要脱敏的属性值，添加加密标识
 ~~~yaml
 # 参数脱敏配置
 demo1:
