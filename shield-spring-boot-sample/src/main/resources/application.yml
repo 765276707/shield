@@ -1,0 +1,31 @@
+# 应用参数
+server:
+  port: 9090
+spring:
+  application:
+    name: shield-spring-boot-sample
+
+
+# 参数脱敏配置
+demo1:
+  param: 'SED[s2onk7fwhLyLtzw4xlBMVdqNjLCqG36R9SZoroO3In8]'
+demo2:
+  param: 'SED[IsCk-O-Ey9lo_JvOp5jqGfmPp-ZEXJNhC5m7nGXuRLI]'
+
+
+# shield 示例配置
+shield:
+  # 秘钥值
+  secret: 'ABCDEFGHIJKL0123'
+#  secret-origin: external_conf_file
+#  external-secret-file: 'H:\\secret\\secret.properties'
+  # 脱敏器算法
+#  algorithm: aes
+  # 开启风险提示功能
+#  enable-risking: true
+#  risking-keywords: 'password,secret,pwd'
+  # 开启输出解密详情
+#  enable-details: true
+  # 加密标识前缀和后缀
+#  prefix: 'SED['
+#  suffix: ']'

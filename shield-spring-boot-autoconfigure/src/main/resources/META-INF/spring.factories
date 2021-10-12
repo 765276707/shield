@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.gitee.pristine.autoconfigure.ShieldAutoConfiguration
+
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.gitee.pristine.autoconfigure.env.ExternalSecretFileConfigEnvLoader

@@ -1,0 +1,61 @@
+package com.gitee.pristine.autoconfigure.conf;
+
+import com.gitee.pristine.autoconfigure.converter.PropertyConverter;
+import com.gitee.pristine.autoconfigure.desensitiser.PropertyDesensitiser;
+import com.gitee.pristine.autoconfigure.listener.PropertyListener;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 拓展端点
+ */
+public class ExpandPoint {
+
+    private PropertyDesensitiser customizeDesensitiser = null;
+    private final List<PropertyListener> additionalListeners = new ArrayList<>(3);
+    private final List<PropertyConverter> additionalConverters = new ArrayList<>(3);
+    // 风险提示关键词
+    private String riskingKeywords = "";
+
+    public ExpandPoint() {}
+
+    public static ExpandPoint createEmpty() {
+        return new ExpandPoint();
+    }
+
+    public ExpandPoint registerDesensitiser(PropertyDesensitiser customizeDesensitiser) {
+        this.customizeDesensitiser = customizeDesensitiser;
+        return this;
+    }
+
+    public ExpandPoint setRiskingKeywords(String riskingKeywords) {
+        this.riskingKeywords = riskingKeywords;
+        return this;
+    }
+
+    public ExpandPoint addListener(PropertyListener listener) {
+        this.additionalListeners.add(listener);
+        return this;
+    }
+
+    public ExpandPoint addConverter(PropertyConverter converter) {
+        this.additionalConverters.add(converter);
+        return this;
+    }
+
+    public PropertyDesensitiser getCustomizeDesensitiser() {
+        return customizeDesensitiser;
+    }
+
+    public List<PropertyListener> getAdditionalListeners() {
+        return additionalListeners;
+    }
+
+    public List<PropertyConverter> getAdditionalConverters() {
+        return additionalConverters;
+    }
+
+    public String getRiskingKeywords() {
+        return riskingKeywords;
+    }
+}
