@@ -74,7 +74,9 @@ public class DesensitiserProxy {
             return decValue;
         }
         catch (Exception e) {
-            log.error("[fog] decrypting property value errors: {}", e.getMessage(), e);
+            if (log.isErrorEnabled()) {
+                log.error("[shield] decrypting property value errors: {}", e.getMessage(), e);
+            }
             throw new ShieldException(e.getMessage(), e);
         }
     }
