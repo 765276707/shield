@@ -17,6 +17,7 @@ demo2:
 shield:
   # 秘钥值
   secret: 'ABCDEFGHIJKL0123'
+  # 密钥文件来源
 #  secret-origin: external_conf_file
 #  external-secret-file: 'H:\\secret\\secret.properties'
   # 脱敏器算法

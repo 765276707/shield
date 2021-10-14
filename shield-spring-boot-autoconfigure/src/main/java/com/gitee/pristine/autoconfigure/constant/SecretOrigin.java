@@ -2,7 +2,7 @@ package com.gitee.pristine.autoconfigure.constant;
 
 /**
  * 秘钥来源模式
- * @author xzbcode
+ * @author xzb
  */
 public enum SecretOrigin {
 

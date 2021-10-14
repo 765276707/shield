@@ -14,6 +14,10 @@ import java.nio.charset.Charset;
 import java.security.Key;
 import java.security.Security;
 
+/**
+ * DES3 脱敏器
+ * @author xzb
+ */
 public class Des3PropertyDesensitiser extends AbstractPropertyDesensitiser {
 
     // 编码类型

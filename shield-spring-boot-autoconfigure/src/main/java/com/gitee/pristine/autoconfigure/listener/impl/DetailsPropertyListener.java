@@ -9,6 +9,10 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 脱敏详情监听器
+ * @author xzb
+ */
 public class DetailsPropertyListener implements PropertyListener<PropertyEvent> {
 
     private final static Logger log = LoggerFactory.getLogger(DetailsPropertyListener.class);

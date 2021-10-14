@@ -9,6 +9,10 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 风险提示监听器
+ * @author xzb
+ */
 public class RiskingPropertyListener implements PropertyListener<PropertyEvent> {
 
     private final String keywords;

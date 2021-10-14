@@ -4,6 +4,10 @@ import com.gitee.pristine.autoconfigure.proxy.DesensitiserProxy;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
 
+/**
+ * 属性转换器，转换脱敏配置值
+ * @author xzb
+ */
 public interface PropertyConverter {
 
     /**

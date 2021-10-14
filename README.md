@@ -6,7 +6,7 @@ shield是一个SpringBoot配置加密框架，内置了多种加密算法，支�
 
 #### 2.适用场景
 1. 对于SpringBoot的重要配置属性进行加密，保证敏感数据信息不被泄露。
-2. JDK8+, springboot2.2.x以上
+2. JDK8+, springboot2.x 以上
 
 #### 3.安装教程
 
@@ -97,7 +97,7 @@ shield:
 #  suffix: ']'
 ~~~
 
-#### 5.框架拓展
+#### 6.框架拓展
 ~~~java
 /**
  * Shield提供拓展配置
@@ -124,7 +124,7 @@ public class DemoShieldConfig extends ShieldConfiguration {
 }
 ~~~
 
-#### 6.参与贡献
+#### 7.参与贡献
 
 1.  Fork 本仓库
 2.  新建 Feat_xxx 分支

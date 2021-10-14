@@ -10,6 +10,10 @@ import org.springframework.lang.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 脱敏属性值处理器
+ * @author xzb
+ */
 public class PropertySourceProcessor {
 
     /**

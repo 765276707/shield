@@ -3,6 +3,10 @@ package com.gitee.pristine.autoconfigure.listener;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * 监听器发布者
+ * @author xzb
+ */
 public class ShieldPublisher {
 
     // 存储容器

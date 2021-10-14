@@ -1,5 +1,9 @@
 package com.gitee.pristine.autoconfigure.constant;
 
+/**
+ * 内置加密算法
+ * @author xzb
+ */
 public enum ShieldAlgorithm {
 
     AES("com.gitee.pristine.autoconfigure.desensitiser.impl.AesPropertyDesensitiser"),

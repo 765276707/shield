@@ -1,5 +1,9 @@
 package com.gitee.pristine.autoconfigure.listener;
 
+/**
+ * 属性事件
+ * @author xzb
+ */
 public class PropertyEvent {
 
     private Boolean isEncode = false;

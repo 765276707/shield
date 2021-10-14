@@ -10,6 +10,10 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
 
+/**
+ * AES 脱敏器
+ * @author xzb
+ */
 public class AesPropertyDesensitiser extends AbstractPropertyDesensitiser {
 
     // 算法

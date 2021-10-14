@@ -8,6 +8,10 @@ import org.springframework.core.io.support.ResourcePropertySource;
 
 import java.util.Map;
 
+/**
+ * 转换 ResourcePropertySource
+ * @author xzb
+ */
 public class ResourcePropertySourceConverter implements PropertyConverter {
 
     @Override

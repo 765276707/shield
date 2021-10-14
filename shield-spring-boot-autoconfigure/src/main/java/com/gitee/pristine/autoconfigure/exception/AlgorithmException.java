@@ -1,5 +1,9 @@
 package com.gitee.pristine.autoconfigure.exception;
 
+/**
+ * 算法异常
+ * @author xzb
+ */
 public class AlgorithmException extends ShieldException {
 
     public AlgorithmException() {

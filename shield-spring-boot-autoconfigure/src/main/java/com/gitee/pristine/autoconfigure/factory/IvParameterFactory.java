@@ -4,6 +4,10 @@ import com.gitee.pristine.autoconfigure.util.DigestUtil;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 偏移量工厂
+ * @author xzb
+ */
 public class IvParameterFactory {
 
     // 偏移量存储池

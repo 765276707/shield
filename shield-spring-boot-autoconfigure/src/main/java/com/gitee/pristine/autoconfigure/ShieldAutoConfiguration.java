@@ -28,6 +28,10 @@ import org.springframework.util.StringUtils;
 import java.lang.reflect.Constructor;
 import java.util.List;
 
+/**
+ * Shield自动装配
+ * @author xzb
+ */
 public class ShieldAutoConfiguration implements BeanFactoryPostProcessor, EnvironmentAware, Ordered {
 
     // 脱敏器注入Spring容器的默认Bean名称
@@ -36,6 +40,8 @@ public class ShieldAutoConfiguration implements BeanFactoryPostProcessor, Enviro
     private Logger log = LoggerFactory.getLogger(ShieldAutoConfiguration.class);
     private ConfigurableEnvironment configurableEnvironment;
     private static final int ORDER = 10;
+
+    private PropertySourceProcessor propertySourceProcessor = new PropertySourceProcessor();
 
     @Override
     public void setEnvironment(Environment environment) {
@@ -55,7 +61,7 @@ public class ShieldAutoConfiguration implements BeanFactoryPostProcessor, Enviro
 
 
         // 自定义配置类
-        ExpandPoint expandPoint = new ExpandPoint();
+        ExpandPoint expandPoint = ExpandPoint.createEmpty();
         String[] beanNames = factory.getBeanNamesForType(ShieldConfiguration.class);
         for (String beanName : beanNames) {
             BeanDefinition beanDefinition = factory.getBeanDefinition(beanName);
@@ -76,8 +82,8 @@ public class ShieldAutoConfiguration implements BeanFactoryPostProcessor, Enviro
 
         // 解析所有配置
         DesensitiserProxy desensitiserProxy = this.createProxy(propertyDesensitiser, shieldPublisher, shieldProperties);
-        new PropertySourceProcessor()
-                .process(getMutablePropertySources(), desensitiserProxy, expandPoint.getAdditionalConverters());
+        this.propertySourceProcessor.process(this.configurableEnvironment.getPropertySources(),
+                        desensitiserProxy, expandPoint.getAdditionalConverters());
 
     }
 
@@ -105,7 +111,7 @@ public class ShieldAutoConfiguration implements BeanFactoryPostProcessor, Enviro
             shieldConfiguration.config(expandPoint);
         }
         catch (ClassNotFoundException e) {
-            throw new ShieldException(" [%s] can not be found, check encoder class path or it exists.", configClazz);
+            throw new ShieldException(" [%s] can not be found, check ShieldConfiguration class path or it exists.", configClazz);
         }
         catch (Exception e) {
             throw new ShieldException(e.getMessage(), e);
@@ -126,10 +132,6 @@ public class ShieldAutoConfiguration implements BeanFactoryPostProcessor, Enviro
         return desensitiser;
     }
 
-
-    private MutablePropertySources getMutablePropertySources() {
-        return this.configurableEnvironment.getPropertySources();
-    }
 
     /**
      * 创建脱敏器的代理类

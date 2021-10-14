@@ -6,6 +6,10 @@ import org.springframework.core.env.PropertySource;
 
 import java.util.List;
 
+/**
+ * 转换器链
+ * @author xzb
+ */
 public class ConverterChain implements PropertyConverter {
 
     private final List<PropertyConverter> handlers;

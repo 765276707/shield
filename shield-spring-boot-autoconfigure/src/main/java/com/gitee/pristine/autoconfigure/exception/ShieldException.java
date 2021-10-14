@@ -1,5 +1,9 @@
 package com.gitee.pristine.autoconfigure.exception;
 
+/**
+ * Shield异常
+ * @author xzb
+ */
 public class ShieldException extends RuntimeException {
 
     public ShieldException() {

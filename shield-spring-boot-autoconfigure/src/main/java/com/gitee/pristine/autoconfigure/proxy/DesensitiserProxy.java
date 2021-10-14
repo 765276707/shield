@@ -9,7 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
-
+/**
+ * 脱敏器代理
+ * @author xzb
+ */
 public class DesensitiserProxy {
 
     private final Logger log = LoggerFactory.getLogger(DesensitiserProxy.class);

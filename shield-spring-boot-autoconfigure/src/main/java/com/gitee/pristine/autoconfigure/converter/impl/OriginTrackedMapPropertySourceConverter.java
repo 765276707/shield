@@ -9,6 +9,10 @@ import org.springframework.core.env.PropertySource;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 转换 OriginTrackedMapPropertySource
+ * @author xzb
+ */
 public class OriginTrackedMapPropertySourceConverter implements PropertyConverter {
 
     @Override
