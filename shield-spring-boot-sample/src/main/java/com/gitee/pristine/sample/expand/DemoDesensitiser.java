@@ -21,7 +21,7 @@ public class DemoDesensitiser extends AbstractPropertyDesensitiser {
         // 获取编码类型
         String charset = super.configParam.getCharset();
         // 此处进行属性加密......
-        return null;
+        return value;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class DemoDesensitiser extends AbstractPropertyDesensitiser {
         // 获取编码类型
         String charset = super.configParam.getCharset();
         // 此处进行属性解密......
-        return null;
+        return value;
     }
 
 }
