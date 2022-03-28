@@ -24,15 +24,15 @@ public class DemoShieldConfig extends ShieldConfiguration {
 //        // 一旦注册了自定义属性脱敏器，则本脱敏器将会直接生效直接替换配置的脱敏器
 //        // 也就是说，shield.algorithm配置将会失效
 //        expandPoint.registerDesensitiser(new DemoDesensitiser());
-
-        // 添加自定义的属性转换器
-        expandPoint.addConverter(new DemoPropertyConverter());
-
-        // 添加自定义属性解析监听器
-        expandPoint.addListener(new DemoPropertyListener());
-
-        // 设置风险提示关键词，以逗号隔开，默认值 ‘password,secret’，多种配置的keywords则会进行合并
-        expandPoint.setRiskingKeywords("demo_password,demo_secret");
+//
+//        // 添加自定义的属性转换器
+//        expandPoint.addConverter(new DemoPropertyConverter());
+//
+//        // 添加自定义属性解析监听器
+//        expandPoint.addListener(new DemoPropertyListener());
+//
+//        // 设置风险提示关键词，以逗号隔开，默认值 ‘password,secret’，多种配置的keywords则会进行合并
+//        expandPoint.setRiskingKeywords("demo_password,demo_secret");
     }
 
 }
