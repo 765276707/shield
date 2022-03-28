@@ -6,7 +6,7 @@ import org.springframework.core.env.PropertySource;
 
 /**
  * 属性转换器，转换脱敏配置值
- * @author xzb
+ * @author Pristine Xu
  */
 public interface PropertyConverter {
 
@@ -19,6 +19,13 @@ public interface PropertyConverter {
         return true;
     }
 
+    /**
+     * 指向 convertSourceInternal
+     * @param currentSource
+     * @param desensitiserProxy
+     * @param originSources
+     * @param converterChain
+     */
     default void convertSource(PropertySource<?> currentSource,
                               DesensitiserProxy desensitiserProxy,
                               MutablePropertySources originSources,
@@ -35,8 +42,9 @@ public interface PropertyConverter {
 
     /**
      * 处理 PropertySource
-     * @param currentSource
-     * @param desensitiserProxy
+     * @param currentSource 当前要处理的 PropertySource
+     * @param desensitiserProxy 脱敏器代理
+     * @param originSources 原有的 MutablePropertySources
      */
     void convertSourceInternal(PropertySource<?> currentSource,
                               DesensitiserProxy desensitiserProxy,

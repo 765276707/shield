@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 
 /**
  * 脱敏器工厂
- * @author xzbcode
+ * @author Pristine Xu
  */
 public class DesensitiserFactory {
 
@@ -22,15 +22,18 @@ public class DesensitiserFactory {
         }
 
         String clazzRef = algorithm.getValue();
-        try {
+        try
+        {
             Class<?> algClazz = Class.forName(clazzRef);
             Constructor<?> constructor = algClazz.getDeclaredConstructor();
             return (PropertyDesensitiser) constructor.newInstance();
         }
-        catch (ClassNotFoundException e) {
+        catch (ClassNotFoundException e)
+        {
             throw new ShieldException(" [%s] can not be found, check encoder class path or it exists.", clazzRef);
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
             throw new ShieldException("DesensitizeEncoder bean init failure.", e);
         }
     }

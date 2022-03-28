@@ -1,5 +1,6 @@
 package com.gitee.pristine.autoconfigure.proxy;
 
+import com.gitee.pristine.autoconfigure.desensitiser.ConfigParam;
 import com.gitee.pristine.autoconfigure.desensitiser.PropertyDesensitiser;
 import com.gitee.pristine.autoconfigure.exception.ShieldException;
 import com.gitee.pristine.autoconfigure.listener.PropertyEvent;
@@ -11,13 +12,15 @@ import org.springframework.util.StringUtils;
 
 /**
  * 脱敏器代理
- * @author xzb
+ * @author Pristine Xu
  */
 public class DesensitiserProxy {
 
     private final Logger log = LoggerFactory.getLogger(DesensitiserProxy.class);
 
-    // 代理对象
+    /**
+     * 代理对象
+     */
     private boolean isInitProxy = false;
     private final PropertyDesensitiser propertyDesensitiser;
     private ShieldPublisher shieldPublisher;
@@ -30,8 +33,8 @@ public class DesensitiserProxy {
 
     /**
      * 初始化参数，创建代理对象后必须执行本方法
-     * @param shieldProperties
-     * @param shieldPublisher
+     * @param shieldProperties 属性参数
+     * @param shieldPublisher 广播器
      */
     public void initProxyArgs(ShieldProperties shieldProperties, ShieldPublisher shieldPublisher) {
         if (!this.isInitProxy) {
@@ -40,7 +43,9 @@ public class DesensitiserProxy {
             // 设置监听器
             this.shieldPublisher = shieldPublisher;
             // 代理的对象赋秘钥值
-            this.propertyDesensitiser.setSecret(shieldProperties.getSecret());
+            this.propertyDesensitiser.setConfigParam(
+                    new ConfigParam(shieldProperties.getSecret(), shieldProperties.getCharset())
+            );
             this.isInitProxy = true;
         }
     }

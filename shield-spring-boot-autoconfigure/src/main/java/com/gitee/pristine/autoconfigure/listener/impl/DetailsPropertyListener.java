@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 脱敏详情监听器
- * @author xzb
+ * @author Pristine Xu
  */
 public class DetailsPropertyListener implements PropertyListener<PropertyEvent> {
 
@@ -20,7 +20,7 @@ public class DetailsPropertyListener implements PropertyListener<PropertyEvent> 
     private int line = 1;
 
     @Override
-    public void onEvent(PropertyEvent event) {
+    public void onEachPropertyReadEvent(PropertyEvent event) {
         if (event.getEncode()) {
             String message = String.format("%d. 【属性名】 %s，【解密前】 %s, 【解密后】 %s",
                     line, event.getPropertyName(), event.getPropertyValue(), event.getEncodePropertyValue());
@@ -30,9 +30,9 @@ public class DetailsPropertyListener implements PropertyListener<PropertyEvent> 
     }
 
     @Override
-    public void ofEvent() {
+    public void afterAllPropertyReadEvent() {
         if (details.size() > 0) {
-            log.info("[shield] 共有 {} 条配置进行脱敏脱敏，详细信息如下: ", line);
+            log.info("[shield] 共有 {} 条配置进行脱敏脱敏，详细信息如下: ", line-1);
             PrintUtil.printDetails(details);
         }
     }

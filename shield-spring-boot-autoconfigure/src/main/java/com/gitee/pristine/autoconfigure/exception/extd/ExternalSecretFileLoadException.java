@@ -1,4 +1,6 @@
-package com.gitee.pristine.autoconfigure.exception;
+package com.gitee.pristine.autoconfigure.exception.extd;
+
+import com.gitee.pristine.autoconfigure.exception.ShieldException;
 
 /**
  * 外部秘钥配置加载异常

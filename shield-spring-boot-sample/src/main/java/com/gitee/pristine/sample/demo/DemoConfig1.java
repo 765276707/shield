@@ -3,11 +3,10 @@ package com.gitee.pristine.sample.demo;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-
 /**
  * 测试配置属性 1
- * @author xzb
+ * @author Pristine Xu
+ * @description: @Component + @ConfigurationProperties模式
  */
 @Component
 @ConfigurationProperties(prefix = "demo1")
@@ -28,11 +27,6 @@ public class DemoConfig1 {
         return "DemoConfig{" +
                 "param='" + param + '\'' +
                 '}';
-    }
-
-    @PostConstruct
-    public void init() {
-        System.out.println("DemoConfig: " + this.toString());
     }
 
 }

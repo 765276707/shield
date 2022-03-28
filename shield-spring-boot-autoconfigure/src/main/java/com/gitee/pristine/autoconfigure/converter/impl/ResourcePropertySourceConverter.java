@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * 转换 ResourcePropertySource
- * @author xzb
+ * @author Pristine Xu
  */
 public class ResourcePropertySourceConverter implements PropertyConverter {
 

@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 脱敏属性值处理器
- * @author xzb
+ * @author Pristine Xu
  */
 public class PropertySourceProcessor {
 

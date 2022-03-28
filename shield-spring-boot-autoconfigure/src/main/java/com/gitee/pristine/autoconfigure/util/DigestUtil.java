@@ -1,13 +1,13 @@
 package com.gitee.pristine.autoconfigure.util;
 
-import com.gitee.pristine.autoconfigure.exception.AlgorithmException;
+import com.gitee.pristine.autoconfigure.exception.extd.AlgorithmException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
  * 签名工具类
- * @author xzb
+ * @author Pristine Xu
  */
 public class DigestUtil {
 

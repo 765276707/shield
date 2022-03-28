@@ -2,7 +2,7 @@ package com.gitee.pristine.autoconfigure.listener;
 
 /**
  * 属性事件
- * @author xzb
+ * @author Pristine Xu
  */
 public class PropertyEvent {
 
@@ -43,5 +43,15 @@ public class PropertyEvent {
 
     public String getEncodePropertyValue() {
         return encodePropertyValue;
+    }
+
+    @Override
+    public String toString() {
+        return "PropertyEvent{" +
+                "isEncode=" + isEncode +
+                ", propertyName='" + propertyName + '\'' +
+                ", propertyValue=" + propertyValue +
+                ", encodePropertyValue='" + encodePropertyValue + '\'' +
+                '}';
     }
 }

@@ -2,7 +2,7 @@ package com.gitee.pristine.autoconfigure.exception;
 
 /**
  * Shield异常
- * @author xzb
+ * @author Pristine Xu
  */
 public class ShieldException extends RuntimeException {
 
@@ -10,6 +10,7 @@ public class ShieldException extends RuntimeException {
     }
 
     public ShieldException(String message) {
+        super(message);
     }
 
     public ShieldException(String message, Object args) {

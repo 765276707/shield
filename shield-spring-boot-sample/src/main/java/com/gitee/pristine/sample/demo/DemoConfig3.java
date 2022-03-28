@@ -4,11 +4,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-
 /**
  * 测试配置属性 3
- * @author xzb
+ * @author Pristine Xu
+ * @description: @PropertySource模式
  */
 @PropertySource(value = {"classpath:demo3.properties"})
 @Component
@@ -30,11 +29,6 @@ public class DemoConfig3 {
         return "DemoConfig3{" +
                 "param='" + param + '\'' +
                 '}';
-    }
-
-    @PostConstruct
-    public void init() {
-        System.out.println("DemoConfig3: " + this.toString());
     }
 
 }

@@ -6,12 +6,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 偏移量工厂
- * @author xzb
+ * @author Pristine Xu
  */
 public class IvParameterFactory {
 
-    // 偏移量存储池
-    private final static Map<String, String> ivPool = new ConcurrentHashMap<>(1);
+    /**
+     * 偏移量存储池
+     */
+    private final static Map<String, String> IV_POOL = new ConcurrentHashMap<>(1);
 
     /**
      * 获取IV值
@@ -20,11 +22,11 @@ public class IvParameterFactory {
      */
     public static synchronized String getIvParameter(String secret, int length) {
         // 从缓存中获取
-        String iv = ivPool.get(secret);
+        String iv = IV_POOL.get(secret);
         if (iv == null) {
             // 创建一个iv
             String genIV = generateIvParameter(secret, length);
-            ivPool.put(secret, genIV);
+            IV_POOL.put(secret, genIV);
             iv = genIV;
         }
         return iv;

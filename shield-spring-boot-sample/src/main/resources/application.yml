@@ -8,25 +8,29 @@ spring:
 
 # 参数脱敏配置
 demo1:
-  param: 'SED[s2onk7fwhLyLtzw4xlBMVdqNjLCqG36R9SZoroO3In8]'
+  param: 'SED[UYqckBmKiSMfrifeGnHKh9sTKepOj02fXHqAzFiyTE8]'
 demo2:
-  param: 'SED[IsCk-O-Ey9lo_JvOp5jqGfmPp-ZEXJNhC5m7nGXuRLI]'
+  param: 'SED[4ilB86uEervFeHI_iPfCj017L4w4KfGNo-_7vEF5mCc]'
 
 
 # shield 示例配置
 shield:
   # 秘钥值
-  secret: 'ABCDEFGHIJKL0123'
+  secret: 'ABCDEFGH123'
   # 密钥文件来源
-#  secret-origin: external_conf_file
-#  external-secret-file: 'H:\\secret\\secret.properties'
+  secret-origin: external_conf_file
+  # 密钥文件路径，当前 secret-origin 配置为 external_conf_file 时该配置方才有效，请确保该文件路径可以正常访问
+  external-secret-file: 'L:\\secret.sed'
+  # 是否在读取完密钥文件后删除该文件
+  delete-external-secret-file-after-read: false
   # 脱敏器算法
-#  algorithm: aes
+  algorithm: aes
   # 开启风险提示功能
-#  enable-risking: true
-#  risking-keywords: 'password,secret,pwd'
+  enable-risking: true
+  # 风险提示关键词，如果 enable-risking=true，则该项必须进行配置
+  risking-keywords: 'password,secret,pwd'
   # 开启输出解密详情
-#  enable-details: true
+  enable-details: true
   # 加密标识前缀和后缀
-#  prefix: 'SED['
-#  suffix: ']'
+  prefix: 'SED['
+  suffix: ']'

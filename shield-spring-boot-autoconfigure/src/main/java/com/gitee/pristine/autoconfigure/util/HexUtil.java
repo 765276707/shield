@@ -2,20 +2,28 @@ package com.gitee.pristine.autoconfigure.util;
 
 import java.util.Locale;
 
+/**
+ * Hex工具类
+ * @author Pristine Xu
+ * @date 2022/3/22 15:10
+ * @description:
+ */
 public class HexUtil {
 
     /**
      * 16进制的hex字符串转byte[]
-     * @param src
+     * @param src 字符串参数
      * @return
      */
-    public static byte[] hexStr2Bytes(String src) {
+    public static byte[] hexStrToBytes(String src) {
         /*对输入值进行规范化整理*/
         src = src.trim().replace(" ", "").toUpperCase(Locale.US);
         //处理值初始化
         int m=0,n=0;
-        int iLen=src.length()/2; //计算长度
-        byte[] ret = new byte[iLen]; //分配存储空间
+        //计算长度
+        int iLen = src.length() / 2;
+        //分配存储空间
+        byte[] ret = new byte[iLen];
         for (int i = 0; i < iLen; i++){
             m=i*2+1;
             n=m+1;
@@ -26,7 +34,7 @@ public class HexUtil {
 
     /**
      * byte[]转16进制的hex字符串
-     * @param src
+     * @param src byte数组参数
      * @return
      */
     public static String bytesToHexStr(byte[] src) {

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 转换器链
- * @author xzb
+ * @author Pristine Xu
  */
 public class ConverterChain implements PropertyConverter {
 

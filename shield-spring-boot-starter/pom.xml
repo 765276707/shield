@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>shield-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.6</version>
     <name>shield-spring-boot-starter</name>
     <description>Shield starter模块</description>
 
     <parent>
         <groupId>com.gitee.pristine</groupId>
         <artifactId>shield</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.6</version>
     </parent>
 
     <dependencies>
@@ -24,7 +24,7 @@
         <!-- crypt -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk16</artifactId>
+            <artifactId>bcprov-jdk15to18</artifactId>
         </dependency>
         <dependency>
             <groupId>com.crypteron</groupId>

@@ -1,8 +1,10 @@
-package com.gitee.pristine.autoconfigure.exception;
+package com.gitee.pristine.autoconfigure.exception.extd;
+
+import com.gitee.pristine.autoconfigure.exception.ShieldException;
 
 /**
  * 算法异常
- * @author xzb
+ * @author Pristine Xu
  */
 public class AlgorithmException extends ShieldException {
 

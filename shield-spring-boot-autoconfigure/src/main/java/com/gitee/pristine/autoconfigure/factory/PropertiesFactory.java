@@ -1,23 +1,19 @@
 package com.gitee.pristine.autoconfigure.factory;
 
-import com.gitee.pristine.autoconfigure.exception.ShieldException;
+import com.gitee.pristine.autoconfigure.constant.Constant;
+import com.gitee.pristine.autoconfigure.exception.extd.ConfigValueParseException;
 import com.gitee.pristine.autoconfigure.properties.ShieldProperties;
 import com.gitee.pristine.autoconfigure.util.ReflectUtil;
+import com.gitee.pristine.autoconfigure.util.SpellUtil;
 import org.springframework.core.env.ConfigurableEnvironment;
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * 属性值工厂
- * @author xzb
+ * @author Pristine Xu
  */
 public class PropertiesFactory {
-
-    // 大写字母正则编译
-    private static Pattern capitalPattern = Pattern.compile("[A-Z]");
-    private final static String SHIELD_PREFIX = "shield";
 
     /**
      * 从环境中解析 ShieldProperties 的值
@@ -31,7 +27,7 @@ public class PropertiesFactory {
         try {
             for (Field field : fields) {
                 String fieldName = field.getName();
-                String propName = convertConfPropName(fieldName, SHIELD_PREFIX);
+                String propName = convertConfPropName(fieldName,  Constant.CONFIG_PROPERTIES_PREFIX);
                 Class<?> type = field.getType();
                 Object property = environment.getProperty(propName, type);
                 // 如果属性有额外设定，则重新赋值
@@ -40,7 +36,7 @@ public class PropertiesFactory {
                 }
             }
         } catch (IllegalAccessException e) {
-            throw new ShieldException(e.getMessage(), e);
+            throw new ConfigValueParseException(e.getMessage(), e);
         }
         return shieldProperties;
     }
@@ -53,25 +49,7 @@ public class PropertiesFactory {
      */
     private static String convertConfPropName(String objectFieldName, String prefix) {
         String fixedPrefix = prefix + ".";
-        return fixedPrefix + camelToLine(objectFieldName, "-");
-    }
-
-
-    /**
-     * 驼峰转换
-     * 示例： userName -> user-name
-     * @param value 属性值
-     * @param splitChar 分隔符
-     * @return
-     */
-    private static String camelToLine(String value, String splitChar) {
-        Matcher matcher = capitalPattern.matcher(value);
-        StringBuffer stringBuffer = new StringBuffer();
-        while (matcher.find()) {
-            matcher.appendReplacement(stringBuffer, splitChar + matcher.group(0).toLowerCase());
-        }
-        matcher.appendTail(stringBuffer);
-        return stringBuffer.toString();
+        return fixedPrefix + SpellUtil.camelToLine(objectFieldName);
     }
 
 }

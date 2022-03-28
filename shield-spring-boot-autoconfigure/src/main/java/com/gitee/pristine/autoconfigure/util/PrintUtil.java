@@ -2,6 +2,12 @@ package com.gitee.pristine.autoconfigure.util;
 
 import java.util.List;
 
+/**
+ * 打印工具类
+ * @author Pristine Xu
+ * @date 2022/3/23 17:51
+ * @description:
+ */
 public class PrintUtil {
 
     /**

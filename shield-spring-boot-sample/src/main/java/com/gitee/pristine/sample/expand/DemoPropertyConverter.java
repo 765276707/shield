@@ -9,7 +9,7 @@ import org.springframework.core.env.PropertySource;
 
 /**
  * 自定义属性转换器
- * @author xzb
+ * @author Pristine Xu
  */
 public class DemoPropertyConverter implements PropertyConverter {
 

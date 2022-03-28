@@ -1,40 +1,75 @@
 package com.gitee.pristine.autoconfigure.properties;
 
+import com.gitee.pristine.autoconfigure.constant.Constant;
 import com.gitee.pristine.autoconfigure.constant.SecretOrigin;
 import com.gitee.pristine.autoconfigure.constant.ShieldAlgorithm;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * 配置属性
+ * @author Pristine Xu
+ * @date 2022/3/23 17:51
+ * @description:
+ */
 @Component
-@ConfigurationProperties(prefix = "shield")
+@ConfigurationProperties(prefix = Constant.CONFIG_PROPERTIES_PREFIX)
 public class ShieldProperties {
 
-    // 算法类型
+    /**
+     * 算法类型
+     */
     private ShieldAlgorithm algorithm = ShieldAlgorithm.AES;
 
-    // 秘钥来源
+    /**
+     * 秘钥来源
+     */
     private SecretOrigin secretOrigin = SecretOrigin.APPLICATION_CONF_FILE;
 
-    // 外部存储秘钥的文件，支持properties格式
+    /**
+     * 外部存储秘钥的文件，支持properties格式，请确文件可以正常访问
+     */
     private String externalSecretFile = "";
 
-    // 加密前缀标识
+    /**
+     * 是否要在密钥文件读取之后进行删除操作，默认：false
+     */
+    private Boolean deleteExternalSecretFileAfterRead = false;
+
+    /**
+     * 配置文件字符集类型，默认：UTF-8
+     */
+    private String charset = "UTF-8";
+
+    /**
+     * 加密前缀标识
+     */
     private String prefix = "SED[";
 
-    // 加密后缀标识
+    /**
+     * 加密后缀标识
+     */
     private String suffix = "]";
 
-    // 秘钥
+    /**
+     * 秘钥
+     */
     private String secret = "";
 
-    // 是否输出加密属性详情
+    /**
+     * 是否输出加密属性详情
+     */
     private Boolean enableDetails = false;
 
-    // 是否开启风险预警
+    /**
+     * 是否开启风险预警
+     */
     private Boolean enableRisking = false;
 
-    // 风险预警关键词，以逗号隔开
-    private String riskingKeywords = "password,secret";
+    /**
+     * 风险预警关键词，以逗号隔开，如：password,secret,xxx ......
+     */
+    private String riskingKeywords = "";
 
     public ShieldAlgorithm getAlgorithm() {
         return algorithm;
@@ -106,5 +141,21 @@ public class ShieldProperties {
 
     public void setExternalSecretFile(String externalSecretFile) {
         this.externalSecretFile = externalSecretFile;
+    }
+
+    public String getCharset() {
+        return charset;
+    }
+
+    public void setCharset(String charset) {
+        this.charset = charset;
+    }
+
+    public Boolean getDeleteExternalSecretFileAfterRead() {
+        return deleteExternalSecretFileAfterRead;
+    }
+
+    public void setDeleteExternalSecretFileAfterRead(Boolean deleteExternalSecretFileAfterRead) {
+        this.deleteExternalSecretFileAfterRead = deleteExternalSecretFileAfterRead;
     }
 }

@@ -8,14 +8,25 @@ import java.util.List;
 
 /**
  * 拓展端点
- * @author xzb
+ * @author Pristine Xu
  */
 public class ExpandPoint {
 
+    /**
+     * 自定义的脱敏器
+     */
     private PropertyDesensitiser customizeDesensitiser = null;
+    /**
+     * 自定义的属性监听器
+     */
     private final List<PropertyListener> additionalListeners = new ArrayList<>(3);
+    /**
+     * 自定义的属性转换器
+     */
     private final List<PropertyConverter> additionalConverters = new ArrayList<>(3);
-    // 风险提示关键词
+    /**
+     * 风险提示关键词，默认为空
+     */
     private String riskingKeywords = "";
 
     public ExpandPoint() {}

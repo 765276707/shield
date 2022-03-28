@@ -2,15 +2,18 @@ package com.gitee.pristine.autoconfigure.desensitiser;
 
 /**
  * 抽象脱敏器
- * @author xzb
+ * @author Pristine Xu
  */
 public abstract class AbstractPropertyDesensitiser implements PropertyDesensitiser {
 
-    protected String secret;
+    /**
+     * 脱敏器所需的配置参数值，包含密钥和编码类型
+     */
+    protected ConfigParam configParam;
 
     @Override
-    public void setSecret(String secret) {
-        this.secret = secret;
+    public void setConfigParam(ConfigParam configParam) {
+        this.configParam = configParam;
     }
 
 }

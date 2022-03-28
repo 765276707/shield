@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 风险提示监听器
- * @author xzb
+ * @author Pristine Xu
  */
 public class RiskingPropertyListener implements PropertyListener<PropertyEvent> {
 
@@ -22,10 +22,11 @@ public class RiskingPropertyListener implements PropertyListener<PropertyEvent> 
 
     public RiskingPropertyListener(String keywords) {
         this.keywords = keywords;
+        log.info("keywords: {}", keywords);
     }
 
     @Override
-    public void onEvent(PropertyEvent event) {
+    public void onEachPropertyReadEvent(PropertyEvent event) {
         String propertyName = event.getPropertyName();
         boolean isContain = contain(propertyName, keywords);
         boolean isEncode = event.getEncode();
@@ -37,7 +38,7 @@ public class RiskingPropertyListener implements PropertyListener<PropertyEvent> 
     }
 
     @Override
-    public void ofEvent() {
+    public void afterAllPropertyReadEvent() {
         if (riskMessages.size() > 0) {
             log.warn("[shield] 风险提示，以下 {} 条配置可能需要进行脱敏配置: ", line);
             PrintUtil.printDetails(riskMessages);

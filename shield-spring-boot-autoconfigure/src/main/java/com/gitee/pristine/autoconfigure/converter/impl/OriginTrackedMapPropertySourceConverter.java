@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * 转换 OriginTrackedMapPropertySource
- * @author xzb
+ * @author Pristine Xu
  */
 public class OriginTrackedMapPropertySourceConverter implements PropertyConverter {
 
@@ -26,7 +26,7 @@ public class OriginTrackedMapPropertySourceConverter implements PropertyConverte
         OriginTrackedMapPropertySource otmpSource = (OriginTrackedMapPropertySource) currentSource;
         Map<String, Object> sourceMap = otmpSource.getSource();
 
-        Map<String, Object> newSourceMap = new HashMap<>();
+        Map<String, Object> newSourceMap = new HashMap<>(sourceMap.size());
         sourceMap.forEach((key, value) -> {
             Object newVal = desensitiserProxy.decode(key, value);
             newSourceMap.put(key, newVal);
@@ -35,7 +35,5 @@ public class OriginTrackedMapPropertySourceConverter implements PropertyConverte
         // 重新包装一个 OriginTrackedMapPropertySource 覆盖
         originSources.addLast(new OriginTrackedMapPropertySource(otmpSource.getName(), newSourceMap));
     }
-
-
 
 }

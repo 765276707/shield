@@ -1,16 +1,25 @@
 package com.gitee.pristine.autoconfigure.desensitiser;
 
+import com.gitee.pristine.autoconfigure.exception.extd.InvalidSecretException;
+
 /**
  * 属性脱敏器
- * @author xzb
+ * @author Pristine Xu
  */
 public interface PropertyDesensitiser {
 
     /**
-     * 设置秘钥
-     * @param secret 秘钥
+     * 设置配置参数
+     * @param configParam 配置参数
      */
-    void setSecret(String secret);
+    void setConfigParam(ConfigParam configParam);
+
+    /**
+     * 检查密钥是否合法
+     * @param secret 密钥
+     * @throws InvalidSecretException 密钥检测无效则抛出该异常
+     */
+    void checkSecret(String secret) throws InvalidSecretException;
 
     /**
      * 加密属性值
